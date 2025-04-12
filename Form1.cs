@@ -33,44 +33,53 @@ namespace idk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-            {
-                //ServicePointManager.Expect100Continue = true;
-                //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                string localPath = gamePath + "\\BepInEx/Plugins/WhoIsThatMonke.dll";
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-HanSolo1000Falcon-Mod/main/WhoIsThatMonke.dll",
-                    @localPath);
-            }
-            if (checkBox2.Checked)
-            {
-                //ServicePointManager.Expect100Continue = true;
-                //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                string localPath = gamePath + "\\BepInEx/Plugins/longArms.dll";
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-hansolo1000falcon-mod/main/LongArms.dll",
-                    @localPath);
-            }
-            if (checkBox3.Checked)
+            if (Settings.Default.GamePathValue != "")
             {
                 System.Diagnostics.Debug.WriteLine(gamePath);
-                //ServicePointManager.Expect100Continue = true;
-                //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                string localPath = gamePath + "\\BepInEx/Plugins/VelocityPlatforms.dll";
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-hansolo1000falcon-mod/main/VelocityPlatforms.dll",
-                    @localPath);
+                if (checkBox1.Checked)
+                {
+                    //ServicePointManager.Expect100Continue = true;
+                    //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                    string localPath = gamePath + "\\BepInEx/Plugins/WhoIsThatMonke.dll";
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-HanSolo1000Falcon-Mod/main/WhoIsThatMonke.dll",
+                        @localPath);
+                }
+                if (checkBox2.Checked)
+                {
+                    //ServicePointManager.Expect100Continue = true;
+                    //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                    string localPath = gamePath + "\\BepInEx/Plugins/longArms.dll";
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-hansolo1000falcon-mod/main/LongArms.dll",
+                        @localPath);
+                }
+                if (checkBox3.Checked)
+                {
+                    System.Diagnostics.Debug.WriteLine(gamePath);
+                    //ServicePointManager.Expect100Continue = true;
+                    //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                    string localPath = gamePath + "\\BepInEx/Plugins/VelocityPlatforms.dll";
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Every-hansolo1000falcon-mod/main/VelocityPlatforms.dll",
+                        @localPath);
+                }
+                if (checkBox5.Checked)
+                {
+                    //ServicePointManager.Expect100Continue = true;
+                    //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                    string localPath = gamePath + "\\BepInEx/Plugins/Utilla.dll";
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Utilla-for-mod-manager/main/Utilla.dll",
+                        @localPath);
+                }
             }
-            if (checkBox5.Checked)
+            else
             {
-                //ServicePointManager.Expect100Continue = true;
-                //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                string localPath = gamePath + "\\BepInEx/Plugins/Utilla.dll";
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("https://raw.githubusercontent.com/Bleesy1/Utilla-for-mod-manager/main/Utilla.dll",
-                    @localPath);
-            }
+                MessageBox.Show("Choose a gamepath first! The mods cannot install without a location for them to install to.", "oops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine("test");
 
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -125,11 +134,6 @@ namespace idk
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(new ProcessStartInfo { FileName = ("https://github.com/The-Graze/WhoIsTalking/releases/latest"), UseShellExecute = true });
@@ -148,6 +152,43 @@ namespace idk
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Settings.Default.GamePathValue == "")
+            {
+                MessageBox.Show("Choose a gamepath first!", "oops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine("test");
+            }
+            else { 
+                OpenFileDialog folder = new OpenFileDialog();
+                folder.InitialDirectory = gamePath + "\\BepInEx\\Plugins";
+                folder.ShowDialog();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (Settings.Default.GamePathValue == "")
+            {
+                MessageBox.Show("Choose a gamepath first!", "oops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine("test");
+            }
+            else { 
+                OpenFileDialog folder = new OpenFileDialog();
+                folder.InitialDirectory = gamePath;
+                folder.ShowDialog();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            folder.ShowDialog();
+            gamePath = folder.SelectedPath;
+            Settings.Default.GamePathValue = gamePath;
+            textBox1.Text = gamePath;
         }
     }
 }

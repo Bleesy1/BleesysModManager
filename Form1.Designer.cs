@@ -48,6 +48,9 @@
             label9 = new Label();
             checkBox5 = new CheckBox();
             label11 = new Label();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -79,6 +82,7 @@
             // button1
             // 
             button1.BackColor = Color.FromArgb(20, 20, 20);
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Snow;
             button1.Location = new Point(5, 335);
@@ -128,6 +132,7 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(20, 20, 20);
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             button2.ForeColor = Color.Snow;
             button2.Location = new Point(200, 335);
@@ -196,7 +201,7 @@
             textBox1.ForeColor = Color.LightGray;
             textBox1.Location = new Point(21, 27);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(479, 23);
+            textBox1.Size = new Size(411, 23);
             textBox1.TabIndex = 11;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -213,32 +218,34 @@
             // 
             // linkLabel1
             // 
+            linkLabel1.ActiveLinkColor = Color.White;
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.DisabledLinkColor = Color.Transparent;
-            linkLabel1.LinkColor = Color.Red;
+            linkLabel1.LinkColor = Color.White;
             linkLabel1.Location = new Point(178, 210);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(61, 15);
             linkLabel1.TabIndex = 13;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Download";
-            linkLabel1.VisitedLinkColor = Color.FromArgb(192, 0, 0);
+            linkLabel1.VisitedLinkColor = Color.White;
             linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
             // 
             // linkLabel2
             // 
+            linkLabel2.ActiveLinkColor = Color.White;
             linkLabel2.AutoSize = true;
             linkLabel2.BackColor = Color.Transparent;
             linkLabel2.DisabledLinkColor = Color.Transparent;
-            linkLabel2.LinkColor = Color.Red;
+            linkLabel2.LinkColor = Color.White;
             linkLabel2.Location = new Point(133, 195);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(61, 15);
             linkLabel2.TabIndex = 14;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Download";
-            linkLabel2.VisitedLinkColor = Color.FromArgb(192, 0, 0);
+            linkLabel2.VisitedLinkColor = Color.White;
             linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // label10
@@ -288,6 +295,47 @@
             label11.TabIndex = 22;
             label11.Text = "-Utilla is needed for modded lobbies";
             // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(20, 20, 20);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = SystemColors.ButtonFace;
+            button3.Location = new Point(323, 335);
+            button3.Name = "button3";
+            button3.Size = new Size(92, 38);
+            button3.TabIndex = 23;
+            button3.Text = "Open plugins folder";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(20, 20, 20);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = SystemColors.ButtonFace;
+            button4.Location = new Point(421, 335);
+            button4.Name = "button4";
+            button4.Size = new Size(92, 38);
+            button4.TabIndex = 24;
+            button4.Text = "Open Gorilla Tag folder";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(20, 20, 20);
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.ForeColor = SystemColors.ButtonFace;
+            button5.Location = new Point(438, 27);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 25;
+            button5.Text = "Browse";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -296,6 +344,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(543, 399);
             ControlBox = false;
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
             Controls.Add(label11);
             Controls.Add(checkBox5);
             Controls.Add(label9);
@@ -350,5 +401,8 @@
         private Label label9;
         private CheckBox checkBox5;
         private Label label11;
+        private Button button3;
+        private Button button4;
+        private Button button5;
     }
 }
