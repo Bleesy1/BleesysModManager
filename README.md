@@ -9,6 +9,6 @@ oh yeah and by the way it saves it so you do not have to put it in everytime
 
 -Utilla is not a mod made by HanSolo1000Falcon, the one in this mod manager is made by Graze.
 
--Do not expect this app to be amazing, this is my first time sing winforms to make something.
+-Do not expect this app to be amazing, this is my first time using winforms to make something.
 
 Thanks for using my app:)
