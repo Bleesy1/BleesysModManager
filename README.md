@@ -7,7 +7,7 @@ oh yeah and by the way it saves it so you do not have to put it in everytime
 
 -all of the mods are legal/not cheats (whatever you want to call allowed mods lmao)
 
--Utilla is not a mod made by HanSolo1000Falcon, the one in this mod manager is made by Graze.
+-The utilla is made by graze
 
 -Do not expect this app to be amazing, this is my first time using winforms to make something.
 
